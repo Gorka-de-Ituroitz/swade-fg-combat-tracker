@@ -1,0 +1,154 @@
+{
+  "SWFG": {
+    "Title": "Combat (Fantasy Grounds style)",
+    "Open": "FG Tracker",
+    "Round": "Round",
+    "NotStarted": "Combat not started",
+    "NoCombat": "No combat",
+    "StartCombat": "Begin",
+    "EndTurn": "End turn",
+    "Held": "On Hold",
+    "LostTurn": "Lost turn",
+    "WildCard": "Wild Card",
+    "Wounds": "Wounds",
+    "WoundsShort": "W",
+    "Fatigue": "Fatigue",
+    "FatigueShort": "F",
+    "Pace": "Pace",
+    "Parry": "Parry",
+    "Toughness": "Toughness",
+    "NoEffects": "No active effects",
+    "Empty": "No combatants. Select tokens and press “Add selected”.",
+    "Hint": "Right-click a row: the same options as the SWADE tracker (update combatant, group by name, make group leader…). Drag a combatant onto another to make it follow. Click a card to view it, right-click to redraw. Click Wounds or Fatigue to mark, right-click to remove one; right-click Bennies to add one.",
+    "Tooltip": {
+      "GMBennies": "GM Bennies (click: spend, right-click: add)",
+      "Bennies": "Bennies (click: spend, right-click: add)",
+      "CreateCombat": "Create combat in this scene",
+      "AddSelected": "Add selected tokens",
+      "DealAll": "Deal cards to everyone without one",
+      "DealNPC": "Deal cards to NPCs only",
+      "DealCard": "Deal card",
+      "PreviousTurn": "Previous turn",
+      "NextTurn": "Next turn",
+      "NextRound": "Next round",
+      "EndCombat": "End combat",
+      "ActNow": "Act now (interrupt)",
+      "ActAfter": "Act after current",
+      "Hold": "On Hold",
+      "Target": "Target",
+      "LostTurn": "Loses turn",
+      "Hidden": "Hide from players",
+      "Defeated": "Defeated",
+      "Unfollow": "Stop following leader",
+      "Remove": "Remove from combat",
+      "Expand": "Show effects, stats and powers",
+      "DeleteEffect": "Remove effect",
+      "ViewCard": "View card (right-click: redraw)",
+      "CombatMenu": "Encounter options (create group, reset initiative…)",
+      "RollRun": "Running roll"
+    },
+    "Notify": {
+      "NoTokens": "No tokens selected.",
+      "WrongSystem": "SWADE – FG-style Combat Tracker only works with the SWADE system."
+    },
+    "Keybinding": {
+      "Toggle": "Open/close the FG-style tracker"
+    },
+    "Settings": {
+      "AutoOpen": {
+        "Name": "Open when combat starts",
+        "Hint": "Opens the window automatically when combat starts in the scene you are viewing."
+      },
+      "NpcDetail": {
+        "Name": "NPC info visible to players",
+        "Hint": "What players see of combatants that don't belong to any player.",
+        "All": "Everything (Wounds, Fatigue, Bennies and statuses)",
+        "Status": "Active statuses only",
+        "None": "Nothing"
+      },
+      "StatusList": {
+        "Name": "Statuses on each row",
+        "Hint": "Comma-separated SWADE status ids, in display order."
+      },
+      "GMBennies": {
+        "Name": "Show GM Bennies",
+        "Hint": "Shows the GM Benny counter in the header."
+      },
+      "Theme": {
+        "Name": "Colour theme (world)",
+        "Hint": "Default theme for every player."
+      },
+      "ThemeClient": {
+        "Name": "Colour theme (just you)",
+        "Hint": "Overrides the world theme in this browser only."
+      },
+      "FavoritesMode": {
+        "Name": "Show favourites",
+        "Hint": "When items marked as favourite on the sheet appear in the row (only for whoever controls the character).",
+        "Always": "Always",
+        "Active": "Only on their turn (or expanded)",
+        "Expanded": "Only when the row is expanded",
+        "Never": "Never"
+      },
+      "FavoriteTypes": {
+        "Name": "Favourite types",
+        "Hint": "Favourite item types to show, comma-separated and in order (weapon, power, action, consumable, gear, shield, armor, skill, edge, hindrance, ability). \"all\" shows every favourite."
+      },
+      "NpcAttackTypes": {
+        "Name": "NPC attacks without star",
+        "Hint": "Item types always shown in the NPC row even if not marked as favourite. Powers appear when the row is expanded. Leave empty to show favourites only."
+      },
+      "RollEngine": {
+        "Name": "Rolls from the tracker",
+        "Hint": "Which module handles favourite rolls. Better Rolls 2 follows its click setting (card, dialog or direct roll); SWADE Tools opens its attack dialog.",
+        "Auto": "Automatic (Better Rolls 2 → SWADE Tools → system)",
+        "BR2": "Better Rolls 2",
+        "SwadeTools": "SWADE Tools",
+        "System": "SWADE system"
+      },
+      "PanOnTurn": {
+        "Name": "Pan to the active combatant",
+        "Hint": "Moves the camera to the token of whoever's turn it is.",
+        "None": "No",
+        "Mine": "Only when I change the turn",
+        "All": "Whenever the turn changes"
+      },
+      "PanSelect": {
+        "Name": "Also select the token",
+        "Hint": "When panning, select the token if you own it (the GM selects any NPC)."
+      },
+      "AutoExpand": {
+        "Name": "Expand the active combatant",
+        "Hint": "When the turn changes, expands the effects, stats and powers section of the acting combatant and collapses the previous one."
+      }
+    },
+    "GroupLeader": "Group leader",
+    "Theme": {
+      "world": "Use world theme",
+      "fg": "Fantasy Grounds (parchment)",
+      "fantasy": "Fantasy",
+      "scifi": "Sci-fi",
+      "modern": "Modern",
+      "horror": "Horror",
+      "pulp": "Pulp"
+    },
+    "Fav": {
+      "ShowCard": "Open the roll (Better Rolls 2 / SWADE Tools / system)",
+      "Activate": "Activate"
+    },
+    "CardViewer": {
+      "Title": "Action card",
+      "NoCard": "No card dealt yet.",
+      "Missing": "The combatant is no longer in combat.",
+      "Leader": "Leader's card",
+      "Redraw": "Redraw"
+    },
+    "Powers": "Powers",
+    "PP": "Power Points",
+    "PPGeneral": "PP",
+    "Menu": {
+      "ShowInChat": "Show in chat",
+      "ToggleFavorite": "Toggle favourite"
+    }
+  }
+}

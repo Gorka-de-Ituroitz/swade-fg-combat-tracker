@@ -1,0 +1,24 @@
+<section class="swfg-viewer">
+  {{#if missing}}
+    <p class="none">{{localize "SWFG.CardViewer.Missing"}}</p>
+  {{else if card}}
+    <div class="swfg-viewer-card {{#if card.joker}}joker{{/if}}">
+      {{#if card.img}}
+        <img src="{{card.img}}" alt="{{card.name}}">
+      {{else}}
+        <div class="big-rank {{card.suit.color}}">{{card.rank}}<span>{{card.suit.sym}}</span></div>
+      {{/if}}
+    </div>
+    <div class="swfg-viewer-info">
+      <strong>{{card.label}}</strong>
+      {{#if card.joker}}<span class="tag joker">Joker</span>{{/if}}
+      {{#if card.deckName}}<div class="deck"><i class="fa-solid fa-layer-group"></i> {{card.deckName}}</div>{{/if}}
+      {{#if follower}}<div class="deck"><i class="fa-solid fa-people-group"></i> {{localize "SWFG.CardViewer.Leader"}}: {{leaderName}}</div>{{/if}}
+    </div>
+    {{#if canRedraw}}
+      <button type="button" data-action="redraw"><i class="fa-solid fa-rotate"></i> {{localize "SWFG.CardViewer.Redraw"}}</button>
+    {{/if}}
+  {{else}}
+    <p class="none">{{localize "SWFG.CardViewer.NoCard"}}</p>
+  {{/if}}
+</section>

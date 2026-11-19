@@ -1,0 +1,242 @@
+<section class="swfg-wrapper">
+{{#*inline "swfgItem"}}
+              <li class="fav fav-{{type}}" data-item-id="{{id}}">
+                <a class="fav-name" data-action="itemCard" data-tooltip="{{localize 'SWFG.Fav.ShowCard'}}">
+                  <img src="{{img}}" alt="">
+                  <span>{{name}}</span>
+                </a>
+                {{#if counter}}<span class="fav-counter">{{counter}}</span>{{/if}}
+                {{#each actions as |a|}}
+                  <button type="button" class="fav-btn {{a.kind}}" data-action="itemAction" data-key="{{a.key}}">
+                    {{#if (eq a.kind "trait")}}<i class="fa-solid fa-dice-d20"></i>{{/if}}
+                    {{#if (eq a.kind "damage")}}<i class="fa-solid fa-droplet"></i>{{/if}}
+                    {{#if (eq a.kind "macro")}}<i class="fa-solid fa-code"></i>{{/if}}
+                    {{#if (eq a.kind "template")}}<i class="fa-solid fa-draw-polygon"></i>{{/if}}
+                    {{a.label}}
+                  </button>
+                {{/each}}
+              </li>
+{{/inline}}
+  <header class="swfg-header">
+    {{#if hasCombat}}
+      <div class="swfg-round">
+        {{#if started}}{{localize "SWFG.Round"}} <strong>{{round}}</strong>{{else}}{{localize "SWFG.NotStarted"}}{{/if}}
+      </div>
+    {{else}}
+      <div class="swfg-round">{{localize "SWFG.NoCombat"}}</div>
+    {{/if}}
+
+    {{#if gmBennies}}
+      <button type="button" class="swfg-benny gm" data-action="gmBenny"
+              data-tooltip="{{localize 'SWFG.Tooltip.GMBennies'}}" {{#unless gmBennies.editable}}disabled{{/unless}}>
+        <i class="fa-solid fa-coins"></i> <span>{{gmBennies.value}}</span>
+      </button>
+    {{/if}}
+
+    <div class="swfg-controls">
+      {{#if isGM}}{{#if hasCombat}}
+        <button type="button" class="swfg-menu-btn" data-swfg-menu="combat" data-tooltip="{{localize 'SWFG.Tooltip.CombatMenu'}}"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      {{/if}}{{/if}}
+      {{#if isGM}}
+        {{#unless hasCombat}}
+          {{#if canCreate}}
+            <button type="button" data-action="createCombat" data-tooltip="{{localize 'SWFG.Tooltip.CreateCombat'}}"><i class="fa-solid fa-plus"></i></button>
+          {{/if}}
+        {{/unless}}
+        <button type="button" data-action="addSelected" data-tooltip="{{localize 'SWFG.Tooltip.AddSelected'}}"><i class="fa-solid fa-user-plus"></i></button>
+        {{#if hasCombat}}
+          {{#if anyWithoutCard}}
+            <button type="button" data-action="dealAll" data-tooltip="{{localize 'SWFG.Tooltip.DealAll'}}"><i class="fa-solid fa-layer-group"></i></button>
+            <button type="button" data-action="dealNPC" data-tooltip="{{localize 'SWFG.Tooltip.DealNPC'}}"><i class="fa-solid fa-users-viewfinder"></i></button>
+          {{/if}}
+          {{#if started}}
+            <button type="button" data-action="previousTurn" data-tooltip="{{localize 'SWFG.Tooltip.PreviousTurn'}}"><i class="fa-solid fa-backward-step"></i></button>
+            <button type="button" data-action="nextTurn" data-tooltip="{{localize 'SWFG.Tooltip.NextTurn'}}"><i class="fa-solid fa-forward-step"></i></button>
+            <button type="button" data-action="nextRound" data-tooltip="{{localize 'SWFG.Tooltip.NextRound'}}"><i class="fa-solid fa-forward-fast"></i></button>
+            <button type="button" class="danger" data-action="endCombat" data-tooltip="{{localize 'SWFG.Tooltip.EndCombat'}}"><i class="fa-solid fa-flag-checkered"></i></button>
+          {{else}}
+            <button type="button" class="primary" data-action="startCombat"><i class="fa-solid fa-play"></i> {{localize "SWFG.StartCombat"}}</button>
+          {{/if}}
+        {{/if}}
+      {{else}}
+        {{#if isMyTurn}}
+          <button type="button" class="primary" data-action="endTurn"><i class="fa-solid fa-check"></i> {{localize "SWFG.EndTurn"}}</button>
+        {{/if}}
+      {{/if}}
+    </div>
+  </header>
+
+  <ol class="swfg-list">
+    {{#each rows as |r|}}
+      <li class="swfg-row {{#if r.active}}active{{/if}} {{#if r.defeated}}defeated{{/if}} {{#if r.hidden}}is-hidden{{/if}} {{#if r.follower}}follower{{/if}} {{#if r.held}}held{{/if}} {{#if r.turnLost}}lost-turn{{/if}}"
+          data-combatant-id="{{r.id}}" {{#if r.draggable}}draggable="true"{{/if}}>
+        <div class="swfg-main">
+          {{#if r.card}}
+            <a class="swfg-card {{#if r.card.joker}}joker{{/if}}" data-action="viewCard" data-tooltip="{{r.card.label}} · {{localize 'SWFG.Tooltip.ViewCard'}}">
+              {{#if r.card.img}}
+                <img src="{{r.card.img}}" alt="{{r.card.label}}">
+              {{else}}
+                <span class="rank {{r.card.suit.color}}">{{r.card.rank}}<small>{{r.card.suit.sym}}</small></span>
+              {{/if}}
+            </a>
+          {{else}}
+            <div class="swfg-card empty">
+              {{#if r.held}}
+                <i class="fa-solid fa-hand-back-fist" data-tooltip="{{localize 'SWFG.Held'}}"></i>
+              {{else if r.turnLost}}
+                <i class="fa-solid fa-ban" data-tooltip="{{localize 'SWFG.LostTurn'}}"></i>
+              {{else if r.canDeal}}
+                <button type="button" class="deal" data-action="dealCard" data-tooltip="{{localize 'SWFG.Tooltip.DealCard'}}"><i class="fa-solid fa-diamond"></i></button>
+              {{else}}
+                <span class="rank empty">–</span>
+              {{/if}}
+            </div>
+          {{/if}}
+
+          <img class="swfg-portrait" src="{{r.img}}" alt="" data-action="selectToken">
+
+          <div class="swfg-name" data-action="selectToken">
+            <span class="name">
+              {{#if r.leader}}<i class="fa-solid fa-crown leader" data-tooltip="{{localize 'SWFG.GroupLeader'}}"></i>{{/if}}
+              {{#if r.wildcard}}<i class="fa-solid fa-star wc" data-tooltip="{{localize 'SWFG.WildCard'}}"></i>{{/if}}
+              {{r.name}}
+            </span>
+            <span class="tags">
+              {{#if r.held}}<span class="tag hold">{{localize "SWFG.Held"}}</span>{{/if}}
+              {{#if r.turnLost}}<span class="tag lost">{{localize "SWFG.LostTurn"}}</span>{{/if}}
+              {{#if r.card.joker}}<span class="tag joker">Joker</span>{{/if}}
+            </span>
+          </div>
+
+          <div class="swfg-stats">
+            {{#if r.wounds}}
+              <div class="track wounds" data-track="wounds" data-tooltip="{{localize 'SWFG.Wounds'}} {{r.wounds.value}}/{{r.wounds.max}}">
+                <label>{{localize "SWFG.WoundsShort"}}</label>
+                {{#each r.wounds.pips as |p|}}
+                  {{#if r.editable}}
+                    <a class="pip {{#if p.filled}}filled{{/if}}" data-action="setTrack" data-track="wounds" data-index="{{p.index}}"></a>
+                  {{else}}
+                    <span class="pip {{#if p.filled}}filled{{/if}}"></span>
+                  {{/if}}
+                {{/each}}
+              </div>
+            {{/if}}
+            {{#if r.fatigue}}
+              <div class="track fatigue" data-track="fatigue" data-tooltip="{{localize 'SWFG.Fatigue'}} {{r.fatigue.value}}/{{r.fatigue.max}}">
+                <label>{{localize "SWFG.FatigueShort"}}</label>
+                {{#each r.fatigue.pips as |p|}}
+                  {{#if r.editable}}
+                    <a class="pip {{#if p.filled}}filled{{/if}}" data-action="setTrack" data-track="fatigue" data-index="{{p.index}}"></a>
+                  {{else}}
+                    <span class="pip {{#if p.filled}}filled{{/if}}"></span>
+                  {{/if}}
+                {{/each}}
+              </div>
+            {{/if}}
+            {{#if r.bennies}}
+              <button type="button" class="swfg-benny" data-action="benny" data-tooltip="{{localize 'SWFG.Tooltip.Bennies'}}" {{#unless r.bennies.editable}}disabled{{/unless}}>
+                <i class="fa-solid fa-coins"></i> <span>{{r.bennies.value}}</span>
+              </button>
+            {{/if}}
+          </div>
+
+          <div class="swfg-statuses">
+            {{#each r.statuses as |s|}}
+              {{#if r.editable}}
+                <a class="status {{#if s.active}}active{{/if}}" data-action="toggleStatus" data-status-id="{{s.id}}" data-tooltip="{{s.label}}"><img src="{{s.img}}" alt="{{s.label}}"></a>
+              {{else}}
+                <span class="status active" data-tooltip="{{s.label}}"><img src="{{s.img}}" alt="{{s.label}}"></span>
+              {{/if}}
+            {{/each}}
+          </div>
+
+          <div class="swfg-row-controls">
+            {{#if r.canActNow}}
+              <a data-action="actNow" data-tooltip="{{localize 'SWFG.Tooltip.ActNow'}}"><i class="fa-solid fa-long-arrow-alt-right"></i></a>
+              <a data-action="actAfter" data-tooltip="{{localize 'SWFG.Tooltip.ActAfter'}}"><i class="fa-solid fa-level-down-alt"></i></a>
+            {{/if}}
+            {{#if r.canHold}}
+              <a class="{{#if r.held}}on{{/if}}" data-action="toggleHold" data-tooltip="{{localize 'SWFG.Tooltip.Hold'}}"><i class="fa-solid fa-hand-back-fist"></i></a>
+            {{/if}}
+            {{#if r.canTurnLost}}
+              <a class="{{#if r.turnLost}}on{{/if}}" data-action="toggleTurnLost" data-tooltip="{{localize 'SWFG.Tooltip.LostTurn'}}"><i class="fa-solid fa-ban"></i></a>
+            {{/if}}
+            <a class="{{#if r.targeted}}on{{/if}}" data-action="target" data-tooltip="{{localize 'SWFG.Tooltip.Target'}}"><i class="fa-solid fa-bullseye"></i></a>
+            {{#if r.isGM}}
+              <a class="{{#if r.hidden}}on{{/if}}" data-action="toggleHidden" data-tooltip="{{localize 'SWFG.Tooltip.Hidden'}}"><i class="fa-solid fa-eye-slash"></i></a>
+            {{/if}}
+            {{#if r.editable}}
+              <a class="{{#if r.defeated}}on{{/if}}" data-action="toggleDefeated" data-tooltip="{{localize 'SWFG.Tooltip.Defeated'}}"><i class="fa-solid fa-skull"></i></a>
+            {{/if}}
+            {{#if r.isGM}}
+              {{#if r.follower}}
+                <a data-action="unfollow" data-tooltip="{{localize 'SWFG.Tooltip.Unfollow'}}"><i class="fa-solid fa-link-slash"></i></a>
+              {{/if}}
+              <a data-action="removeCombatant" data-tooltip="{{localize 'SWFG.Tooltip.Remove'}}"><i class="fa-solid fa-trash"></i></a>
+            {{/if}}
+            <a data-action="toggleExpand" data-tooltip="{{localize 'SWFG.Tooltip.Expand'}}"><i class="fa-solid {{#if r.expanded}}fa-chevron-up{{else}}fa-chevron-down{{/if}}"></i></a>
+          </div>
+        </div>
+
+        {{#if r.favorites.length}}
+          <ul class="swfg-favorites">
+            {{#each r.favorites as |f|}}
+              {{> swfgItem f}}
+            {{/each}}
+          </ul>
+        {{/if}}
+
+        {{#if r.expanded}}
+          <div class="swfg-details">
+            {{#if r.stats}}
+              <div class="derived">
+                {{#if r.stats.pace}}
+                  <span class="stat pace" {{#if r.stats.paceTooltip}}data-tooltip="{{r.stats.paceTooltip}}"{{/if}}><b>{{localize "SWFG.Pace"}}</b> {{r.stats.pace}}
+                    {{#if r.stats.running}}
+                      {{#if r.stats.running.canRoll}}
+                        <a class="run-die" data-action="rollRun" data-tooltip="{{localize 'SWFG.Tooltip.RollRun'}}"><i class="fa-solid fa-person-running"></i> d{{r.stats.running.die}}{{#if r.stats.running.mod}}{{numberFormat r.stats.running.mod sign=true}}{{/if}}</a>
+                      {{else}}
+                        <span class="run-die"><i class="fa-solid fa-person-running"></i> d{{r.stats.running.die}}</span>
+                      {{/if}}
+                    {{/if}}
+                  </span>
+                {{/if}}
+                {{#if r.stats.parry}}<span class="stat" {{#if r.stats.parryTooltip}}data-tooltip="{{r.stats.parryTooltip}}"{{/if}}><b>{{localize "SWFG.Parry"}}</b> {{r.stats.parry}}</span>{{/if}}
+                {{#if r.stats.toughness}}<span class="stat"><b {{#if r.stats.toughnessTooltip}}data-tooltip="{{r.stats.toughnessTooltip}}"{{/if}}>{{localize "SWFG.Toughness"}} {{r.stats.toughness}}</b>{{#if r.stats.armor}} <span {{#if r.stats.armorTooltip}}data-tooltip="{{r.stats.armorTooltip}}"{{/if}}>({{r.stats.armor}})</span>{{/if}}</span>{{/if}}
+              </div>
+            {{/if}}
+            {{#if r.powers}}
+              <div class="powers">
+                <h4><i class="fa-solid fa-hand-sparkles"></i> {{localize "SWFG.Powers"}}
+                  {{#each r.powers.pools as |p|}}<span class="pp-pool" data-tooltip="{{localize 'SWFG.PP'}}">{{p.label}}: <b>{{p.value}}</b>/{{p.max}}</span>{{/each}}
+                </h4>
+                <ul class="swfg-favorites in-details">
+                  {{#each r.powers.list as |pw|}}
+                    {{> swfgItem pw}}
+                  {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+            {{#if r.effects.length}}
+              <ul class="effects">
+                {{#each r.effects as |e|}}
+                  <li class="effect" data-effect-uuid="{{e.uuid}}">
+                    <img src="{{e.img}}" alt="">
+                    <span class="ename">{{e.name}}</span>
+                    {{#if e.duration}}<span class="duration">{{e.duration}}</span>{{/if}}
+                    {{#if e.deletable}}<a data-action="deleteEffect" data-effect-uuid="{{e.uuid}}" data-tooltip="{{localize 'SWFG.Tooltip.DeleteEffect'}}"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+                  </li>
+                {{/each}}
+              </ul>
+            {{else}}
+              <p class="none">{{localize "SWFG.NoEffects"}}</p>
+            {{/if}}
+          </div>
+        {{/if}}
+      </li>
+    {{else}}
+      <li class="swfg-empty">{{localize "SWFG.Empty"}}</li>
+    {{/each}}
+  </ol>
+  {{#if isGM}}<footer class="swfg-footer">{{localize "SWFG.Hint"}}</footer>{{/if}}
+</section>

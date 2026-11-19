@@ -1,0 +1,454 @@
+/* =====================================================================
+   SWADE – Combat Tracker estilo Fantasy Grounds
+   Todos los colores salen de variables; cada tema solo cambia variables.
+   ===================================================================== */
+
+/* ---------- Tema por defecto: pergamino Fantasy Grounds ---------- */
+.swade-fg-tracker,
+.swade-fg-tracker.swfg-theme-fg {
+  --swfg-font: "Signika", sans-serif;
+  --swfg-title-font: "Signika", sans-serif;
+  --swfg-bg: #efe4c8;
+  --swfg-row: #ddcda5;
+  --swfg-ink: #2b1d0e;
+  --swfg-muted: #6b5638;
+  --swfg-border: #7a5a32;
+  --swfg-header: linear-gradient(#5a3f22, #3d2914);
+  --swfg-header-ink: #f3e7c9;
+  --swfg-accent: #c9a227;
+  --swfg-btn: #6b4c2a;
+  --swfg-btn-hover: #8a6538;
+  --swfg-btn-ink: #f3e7c9;
+  --swfg-active: #3f7d3a;
+  --swfg-active-bg: #d9ecc9;
+  --swfg-held: #b07a1a;
+  --swfg-danger: #a61b1b;
+  --swfg-wound: #a61b1b;
+  --swfg-fatigue: #3a5fa6;
+  --swfg-pip-bg: rgba(255, 255, 255, 0.55);
+  --swfg-fav-bg: rgba(255, 255, 255, 0.35);
+  --swfg-radius: 6px;
+}
+
+/* ---------- Fantasía: cuero oscuro y oro ---------- */
+.swade-fg-tracker.swfg-theme-fantasy {
+  --swfg-font: "Roboto Slab", "Signika", serif;
+  --swfg-title-font: "Modesto Condensed", "Roboto Slab", serif;
+  --swfg-bg: #241b13;
+  --swfg-row: linear-gradient(#3a2b1d, #2e2217);
+  --swfg-ink: #f0e2c0;
+  --swfg-muted: #bfa77a;
+  --swfg-border: #8c6a3a;
+  --swfg-header: linear-gradient(#4a1f1a, #2a110e);
+  --swfg-header-ink: #f6dfa4;
+  --swfg-accent: #d4a83a;
+  --swfg-btn: #5b2a1f;
+  --swfg-btn-hover: #7a3a2b;
+  --swfg-btn-ink: #f6dfa4;
+  --swfg-active: #6fbf5f;
+  --swfg-active-bg: linear-gradient(#2f4424, #24361c);
+  --swfg-held: #d48a1a;
+  --swfg-danger: #c4302b;
+  --swfg-wound: #c4302b;
+  --swfg-fatigue: #5a86d6;
+  --swfg-pip-bg: rgba(0, 0, 0, 0.35);
+  --swfg-fav-bg: rgba(0, 0, 0, 0.25);
+  --swfg-radius: 4px;
+}
+
+/* ---------- Ciencia ficción: panel de mando con neón ---------- */
+.swade-fg-tracker.swfg-theme-scifi {
+  --swfg-font: "Roboto Mono", "Consolas", "Courier New", monospace;
+  --swfg-title-font: "Roboto Mono", "Consolas", monospace;
+  --swfg-bg: #070d18;
+  --swfg-row: linear-gradient(90deg, #0e1a2e, #0a1424);
+  --swfg-ink: #cfe9ff;
+  --swfg-muted: #6f9bbd;
+  --swfg-border: #1f6f8b;
+  --swfg-header: linear-gradient(90deg, #0f2742, #081321);
+  --swfg-header-ink: #9fe8ff;
+  --swfg-accent: #33d1ff;
+  --swfg-btn: #0f2a44;
+  --swfg-btn-hover: #164067;
+  --swfg-btn-ink: #9fe8ff;
+  --swfg-active: #33ff99;
+  --swfg-active-bg: linear-gradient(90deg, rgba(51, 255, 153, 0.16), rgba(51, 209, 255, 0.06));
+  --swfg-held: #ffb020;
+  --swfg-danger: #ff3b5c;
+  --swfg-wound: #ff3b5c;
+  --swfg-fatigue: #8c7dff;
+  --swfg-pip-bg: rgba(51, 209, 255, 0.08);
+  --swfg-fav-bg: rgba(51, 209, 255, 0.07);
+  --swfg-radius: 2px;
+}
+.swade-fg-tracker.swfg-theme-scifi .swfg-row { box-shadow: inset 0 0 0 1px rgba(51, 209, 255, 0.15); }
+.swade-fg-tracker.swfg-theme-scifi .swfg-round,
+.swade-fg-tracker.swfg-theme-scifi .swfg-name .name { text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---------- Moderno: interfaz limpia ---------- */
+.swade-fg-tracker.swfg-theme-modern {
+  --swfg-font: "Signika", "Helvetica Neue", Arial, sans-serif;
+  --swfg-title-font: "Signika", "Helvetica Neue", Arial, sans-serif;
+  --swfg-bg: #f1f3f6;
+  --swfg-row: #ffffff;
+  --swfg-ink: #1d2433;
+  --swfg-muted: #667085;
+  --swfg-border: #d0d5dd;
+  --swfg-header: #1f2937;
+  --swfg-header-ink: #f9fafb;
+  --swfg-accent: #2563eb;
+  --swfg-btn: #374151;
+  --swfg-btn-hover: #4b5563;
+  --swfg-btn-ink: #f9fafb;
+  --swfg-active: #16a34a;
+  --swfg-active-bg: #e9f8ef;
+  --swfg-held: #d97706;
+  --swfg-danger: #dc2626;
+  --swfg-wound: #dc2626;
+  --swfg-fatigue: #2563eb;
+  --swfg-pip-bg: #f3f4f6;
+  --swfg-fav-bg: #f3f4f6;
+  --swfg-radius: 8px;
+}
+
+/* ---------- Terror: negro, sangre y papel viejo ---------- */
+.swade-fg-tracker.swfg-theme-horror {
+  --swfg-font: "Roboto Slab", "Signika", serif;
+  --swfg-title-font: "Anton", "Roboto Slab", serif;
+  --swfg-bg: #0c0a0a;
+  --swfg-row: linear-gradient(#1b1414, #140f0f);
+  --swfg-ink: #d9cfc2;
+  --swfg-muted: #8f7f74;
+  --swfg-border: #4a2020;
+  --swfg-header: linear-gradient(#300b0b, #0a0303);
+  --swfg-header-ink: #e8d8c8;
+  --swfg-accent: #b3122e;
+  --swfg-btn: #2a0e0e;
+  --swfg-btn-hover: #4a1414;
+  --swfg-btn-ink: #e8d8c8;
+  --swfg-active: #c2203a;
+  --swfg-active-bg: linear-gradient(#2e0d12, #1a0a0c);
+  --swfg-held: #a87b2a;
+  --swfg-danger: #e0243f;
+  --swfg-wound: #8a0f1f;
+  --swfg-fatigue: #4c6b5a;
+  --swfg-pip-bg: rgba(0, 0, 0, 0.5);
+  --swfg-fav-bg: rgba(0, 0, 0, 0.35);
+  --swfg-radius: 2px;
+}
+.swade-fg-tracker.swfg-theme-horror .swfg-round { letter-spacing: 0.08em; }
+
+/* ---------- Pulp: periódico sepia con rojo de portada ---------- */
+.swade-fg-tracker.swfg-theme-pulp {
+  --swfg-font: "Roboto Slab", "Signika", serif;
+  --swfg-title-font: "Anton", "Roboto Slab", sans-serif;
+  --swfg-bg: #e6d6b4;
+  --swfg-row: #f4ead3;
+  --swfg-ink: #2d2416;
+  --swfg-muted: #6e5a3c;
+  --swfg-border: #3b2f1e;
+  --swfg-header: linear-gradient(#c0392b, #7c1d12);
+  --swfg-header-ink: #fff4dc;
+  --swfg-accent: #f2b632;
+  --swfg-btn: #2d2416;
+  --swfg-btn-hover: #4a3c25;
+  --swfg-btn-ink: #fff4dc;
+  --swfg-active: #1f6f78;
+  --swfg-active-bg: #d6ead8;
+  --swfg-held: #c0392b;
+  --swfg-danger: #c0392b;
+  --swfg-wound: #c0392b;
+  --swfg-fatigue: #1f6f78;
+  --swfg-pip-bg: #fffaf0;
+  --swfg-fav-bg: rgba(255, 255, 255, 0.5);
+  --swfg-radius: 0;
+}
+.swade-fg-tracker.swfg-theme-pulp .swfg-row { box-shadow: 3px 3px 0 var(--swfg-border); }
+
+/* =====================================================================
+   Estructura (común a todos los temas)
+   ===================================================================== */
+.swade-fg-tracker .window-content {
+  padding: 0;
+  background: var(--swfg-bg);
+  color: var(--swfg-ink);
+  font-family: var(--swfg-font);
+}
+.swade-fg-tracker .window-header { background: var(--swfg-header); color: var(--swfg-header-ink); }
+
+.swade-fg-tracker .swfg-wrapper { display: flex; flex-direction: column; height: 100%; }
+
+/* ---------- Cabecera ---------- */
+.swade-fg-tracker .swfg-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--swfg-header);
+  color: var(--swfg-header-ink);
+  border-bottom: 2px solid var(--swfg-accent);
+}
+.swade-fg-tracker .swfg-round { font-family: var(--swfg-title-font); font-size: 1.15em; flex: 1; }
+.swade-fg-tracker .swfg-round strong { font-size: 1.35em; color: var(--swfg-accent); }
+.swade-fg-tracker .swfg-controls { display: flex; gap: 4px; }
+.swade-fg-tracker .swfg-controls button,
+.swade-fg-tracker .swfg-viewer button {
+  width: auto;
+  min-width: 30px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--swfg-btn);
+  color: var(--swfg-btn-ink);
+  border: 1px solid var(--swfg-accent);
+  border-radius: var(--swfg-radius);
+  line-height: 26px;
+  font-family: var(--swfg-font);
+}
+.swade-fg-tracker .swfg-controls button:hover,
+.swade-fg-tracker .swfg-viewer button:hover { background: var(--swfg-btn-hover); }
+.swade-fg-tracker .swfg-controls button.primary { background: var(--swfg-active); color: #fff; }
+.swade-fg-tracker .swfg-controls button.danger { background: var(--swfg-danger); color: #fff; }
+
+/* ---------- Lista ---------- */
+.swade-fg-tracker .swfg-list { flex: 1; overflow-y: auto; list-style: none; margin: 0; padding: 4px; }
+.swade-fg-tracker .swfg-row {
+  margin: 0 0 4px;
+  background: var(--swfg-row);
+  border: 1px solid var(--swfg-border);
+  border-radius: var(--swfg-radius);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.swade-fg-tracker .swfg-row.follower { margin-left: 28px; border-style: dashed; }
+.swade-fg-tracker .swfg-row.active {
+  background: var(--swfg-active-bg);
+  border: 2px solid var(--swfg-active);
+  box-shadow: 0 0 6px var(--swfg-active);
+}
+.swade-fg-tracker .swfg-row.held { border-left: 6px solid var(--swfg-held); }
+.swade-fg-tracker .swfg-row.defeated { opacity: 0.5; filter: grayscale(0.8); }
+.swade-fg-tracker .swfg-row.is-hidden { opacity: 0.65; font-style: italic; }
+.swade-fg-tracker .swfg-row.lost-turn .swfg-card { filter: grayscale(1); }
+.swade-fg-tracker .swfg-row.drop-target { outline: 2px dashed var(--swfg-accent); }
+
+.swade-fg-tracker .swfg-main { display: flex; align-items: center; gap: 6px; padding: 4px 6px; min-height: 56px; }
+
+/* Carta */
+.swade-fg-tracker .swfg-card {
+  flex: 0 0 38px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #555;
+  border-radius: 4px;
+  overflow: hidden;
+  color: #555;
+}
+.swade-fg-tracker a.swfg-card { cursor: zoom-in; transition: transform 0.12s; }
+.swade-fg-tracker a.swfg-card:hover { transform: scale(1.12); box-shadow: 0 0 6px var(--swfg-accent); }
+.swade-fg-tracker .swfg-card.empty { background: var(--swfg-pip-bg); border-style: dashed; border-color: var(--swfg-border); color: var(--swfg-muted); }
+.swade-fg-tracker .swfg-card img { width: 100%; height: 100%; object-fit: cover; border: none; }
+.swade-fg-tracker .swfg-card .rank { font-weight: bold; font-size: 1.15em; text-align: center; line-height: 1; font-family: "Signika", sans-serif; }
+.swade-fg-tracker .swfg-card .rank small { display: block; font-size: 1.1em; }
+.swade-fg-tracker .rank.red, .swade-fg-tracker .big-rank.red { color: #b3121b; }
+.swade-fg-tracker .rank.black, .swade-fg-tracker .big-rank.black { color: #111; }
+.swade-fg-tracker .swfg-card .rank.empty { color: var(--swfg-muted); }
+.swade-fg-tracker .swfg-card.joker { box-shadow: 0 0 6px 2px var(--swfg-accent); border-color: var(--swfg-accent); }
+.swade-fg-tracker .swfg-card .deal {
+  width: 100%; height: 100%; padding: 0; border: none; background: transparent; color: var(--swfg-accent);
+}
+
+/* Retrato y nombre */
+.swade-fg-tracker .swfg-portrait {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border: 1px solid var(--swfg-border);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.swade-fg-tracker .swfg-name { flex: 1 1 120px; min-width: 90px; display: flex; flex-direction: column; cursor: pointer; overflow: hidden; }
+.swade-fg-tracker .swfg-name .name { font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.swade-fg-tracker .swfg-name .wc,
+.swade-fg-tracker .swfg-name .leader { color: var(--swfg-accent); text-shadow: 0 0 1px #000; }
+.swade-fg-tracker .swfg-name .tags { display: flex; gap: 3px; flex-wrap: wrap; }
+.swade-fg-tracker .tag { font-size: 0.75em; padding: 0 4px; border-radius: 3px; color: #fff; }
+.swade-fg-tracker .tag.hold { background: var(--swfg-held); }
+.swade-fg-tracker .tag.lost { background: #555; }
+.swade-fg-tracker .tag.joker { background: var(--swfg-danger); }
+
+/* Heridas / Fatiga / Bennies */
+.swade-fg-tracker .swfg-stats { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; }
+.swade-fg-tracker .track { display: flex; align-items: center; gap: 2px; }
+.swade-fg-tracker .track label { width: 16px; font-size: 0.75em; font-weight: bold; color: var(--swfg-muted); }
+.swade-fg-tracker .pip {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--swfg-ink);
+  border-radius: 2px;
+  background: var(--swfg-pip-bg);
+}
+.swade-fg-tracker .wounds .pip.filled { background: var(--swfg-wound); }
+.swade-fg-tracker .fatigue .pip.filled { background: var(--swfg-fatigue); }
+.swade-fg-tracker a.pip:hover { box-shadow: 0 0 3px var(--swfg-accent); }
+.swade-fg-tracker .swfg-benny {
+  width: auto; height: 20px; line-height: 18px; padding: 0 6px; font-size: 0.85em;
+  background: #c9a227; color: #2b1d0e; border: 1px solid #7a5a00; border-radius: 10px;
+}
+.swade-fg-tracker .swfg-header .swfg-benny.gm { height: 26px; line-height: 24px; font-size: 1em; }
+
+/* Estados */
+.swade-fg-tracker .swfg-statuses { display: flex; flex-wrap: wrap; gap: 2px; max-width: 132px; }
+.swade-fg-tracker .status img {
+  width: 22px;
+  height: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+.swade-fg-tracker .status.active img { opacity: 1; filter: none; border-color: var(--swfg-danger); background: rgba(0, 0, 0, 0.5); }
+
+/* Controles de fila */
+.swade-fg-tracker .swfg-row-controls { display: flex; gap: 6px; margin-left: auto; padding-left: 4px; }
+.swade-fg-tracker .swfg-row-controls a { color: var(--swfg-muted); }
+.swade-fg-tracker .swfg-row-controls a:hover { color: var(--swfg-ink); text-shadow: 0 0 4px var(--swfg-accent); }
+.swade-fg-tracker .swfg-row-controls a.on { color: var(--swfg-danger); }
+
+/* Favoritos */
+.swade-fg-tracker .swfg-favorites {
+  list-style: none;
+  margin: 0;
+  padding: 3px 6px 5px 94px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px dotted var(--swfg-border);
+}
+.swade-fg-tracker .swfg-favorites .fav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 2px 4px;
+  background: var(--swfg-fav-bg);
+  border-radius: var(--swfg-radius);
+}
+.swade-fg-tracker .fav-name { display: flex; align-items: center; gap: 4px; min-width: 120px; flex: 0 1 180px; font-weight: bold; color: var(--swfg-ink); }
+.swade-fg-tracker .fav-name:hover { text-shadow: 0 0 4px var(--swfg-accent); }
+.swade-fg-tracker .fav-name img { width: 20px; height: 20px; border: none; border-radius: 3px; }
+.swade-fg-tracker .fav-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.swade-fg-tracker .fav-counter { font-size: 0.8em; color: var(--swfg-muted); white-space: nowrap; }
+.swade-fg-tracker .fav-btn {
+  width: auto;
+  height: 22px;
+  line-height: 20px;
+  padding: 0 7px;
+  font-size: 0.85em;
+  font-family: var(--swfg-font);
+  background: var(--swfg-btn);
+  color: var(--swfg-btn-ink);
+  border: 1px solid var(--swfg-border);
+  border-radius: var(--swfg-radius);
+}
+.swade-fg-tracker .fav-btn:hover { background: var(--swfg-btn-hover); border-color: var(--swfg-accent); }
+.swade-fg-tracker .fav-btn.damage { border-color: var(--swfg-wound); }
+.swade-fg-tracker .fav-btn i { margin-right: 2px; }
+
+/* Poderes en la parte desplegable */
+.swade-fg-tracker .swfg-details .powers { margin-bottom: 6px; }
+.swade-fg-tracker .swfg-details .powers h4 {
+  display: flex; align-items: center; gap: 10px; margin: 2px 0 3px; padding: 0; border: none;
+  font-size: 1em; font-family: var(--swfg-title-font); color: var(--swfg-ink);
+}
+.swade-fg-tracker .pp-pool { font-family: var(--swfg-font); font-size: 0.85em; color: var(--swfg-muted); }
+.swade-fg-tracker .pp-pool b { color: var(--swfg-accent); }
+.swade-fg-tracker .swfg-favorites.in-details { padding: 0; border-top: none; }
+
+/* Estadísticas con desglose y dado de carrera */
+.swade-fg-tracker .swfg-details .derived .stat[data-tooltip],
+.swade-fg-tracker .swfg-details .derived [data-tooltip] { cursor: help; text-decoration: underline dotted var(--swfg-muted); text-underline-offset: 3px; }
+.swade-fg-tracker .run-die {
+  display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; padding: 0 6px; height: 20px; line-height: 20px;
+  border: 1px solid var(--swfg-border); border-radius: var(--swfg-radius); background: var(--swfg-btn); color: var(--swfg-btn-ink);
+  text-decoration: none; font-size: 0.9em; cursor: pointer;
+}
+.swade-fg-tracker a.run-die:hover { background: var(--swfg-btn-hover); border-color: var(--swfg-accent); }
+.swade-fg-tracker span.run-die { cursor: default; }
+
+/* Detalles */
+.swade-fg-tracker .swfg-details { padding: 4px 8px 6px 94px; border-top: 1px dashed var(--swfg-border); font-size: 0.9em; }
+.swade-fg-tracker .swfg-details .derived { display: flex; gap: 12px; margin-bottom: 4px; }
+.swade-fg-tracker .swfg-details .effects { list-style: none; margin: 0; padding: 0; }
+.swade-fg-tracker .swfg-details .effects li { display: flex; align-items: center; gap: 6px; padding: 1px 0; }
+.swade-fg-tracker .swfg-details .effects img { width: 18px; height: 18px; border: none; }
+.swade-fg-tracker .swfg-details .ename { flex: 1; }
+.swade-fg-tracker .swfg-details .duration { color: var(--swfg-muted); font-style: italic; }
+.swade-fg-tracker .none { margin: 0; color: var(--swfg-muted); font-style: italic; }
+
+.swade-fg-tracker .swfg-empty { padding: 20px; text-align: center; font-style: italic; color: var(--swfg-muted); }
+.swade-fg-tracker .swfg-footer {
+  padding: 3px 8px;
+  font-size: 0.8em;
+  color: var(--swfg-muted);
+  border-top: 1px solid var(--swfg-border);
+  background: var(--swfg-row);
+}
+
+/* ---------- Visor de carta (redimensionable) ---------- */
+.swade-fg-tracker.swfg-card-viewer .window-content { padding: 10px; overflow: hidden; }
+.swade-fg-tracker .swfg-viewer { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; }
+.swade-fg-tracker .swfg-viewer-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  container-type: size;
+  animation: swfg-flip 0.35s ease-out;
+}
+.swade-fg-tracker .swfg-viewer-card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+  border: 2px solid var(--swfg-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+.swade-fg-tracker .swfg-viewer-card.joker img { border-color: var(--swfg-accent); box-shadow: 0 0 18px 4px var(--swfg-accent); }
+.swade-fg-tracker .swfg-viewer-card .big-rank {
+  aspect-ratio: 5 / 7;
+  height: min(100cqh, 140cqw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid var(--swfg-border);
+  border-radius: 12px;
+  font-size: min(28cqh, 40cqw);
+  font-weight: bold;
+  line-height: 1;
+  font-family: "Signika", sans-serif;
+}
+.swade-fg-tracker .swfg-viewer-card .big-rank span { display: block; font-size: 0.9em; }
+.swade-fg-tracker .swfg-viewer-info { flex: 0 0 auto; text-align: center; }
+.swade-fg-tracker .swfg-viewer-info strong { font-size: 1.2em; }
+.swade-fg-tracker .swfg-viewer-info .deck { font-size: 0.85em; color: var(--swfg-muted); }
+.swade-fg-tracker .swfg-viewer > button { flex: 0 0 auto; }
+@keyframes swfg-flip {
+  from { transform: perspective(600px) rotateY(90deg); }
+  to { transform: perspective(600px) rotateY(0); }
+}
+
+/* Botón en la barra lateral */
+.swfg-open { margin-top: 4px; width: 100%; }

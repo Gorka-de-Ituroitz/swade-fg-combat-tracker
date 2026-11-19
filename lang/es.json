@@ -1,0 +1,154 @@
+{
+  "SWFG": {
+    "Title": "Combate (estilo Fantasy Grounds)",
+    "Open": "Tracker FG",
+    "Round": "Asalto",
+    "NotStarted": "Combate sin empezar",
+    "NoCombat": "No hay combate",
+    "StartCombat": "Empezar",
+    "EndTurn": "Terminar turno",
+    "Held": "En espera",
+    "LostTurn": "Pierde turno",
+    "WildCard": "Comodín",
+    "Wounds": "Heridas",
+    "WoundsShort": "H",
+    "Fatigue": "Fatiga",
+    "FatigueShort": "F",
+    "Pace": "Paso",
+    "Parry": "Parada",
+    "Toughness": "Dureza",
+    "NoEffects": "Sin efectos activos",
+    "Empty": "No hay combatientes. Selecciona fichas y pulsa «Añadir seleccionados».",
+    "Hint": "Clic derecho en una fila: las mismas opciones que el tracker de SWADE (actualizar participante, agrupar por nombre, líder del grupo…). Arrastra un combatiente sobre otro para que lo siga. Clic en la carta para verla y clic derecho para robar de nuevo. Clic en Heridas o Fatiga para marcar y clic derecho para bajar una; clic derecho en Bennies para sumar.",
+    "Tooltip": {
+      "GMBennies": "Bennies del DJ (clic: gastar, clic derecho: sumar)",
+      "Bennies": "Bennies (clic: gastar, clic derecho: sumar)",
+      "CreateCombat": "Crear combate en esta escena",
+      "AddSelected": "Añadir las fichas seleccionadas",
+      "DealAll": "Repartir cartas a todos los que no tienen",
+      "DealNPC": "Repartir cartas solo a los PNJ",
+      "DealCard": "Repartir carta",
+      "PreviousTurn": "Turno anterior",
+      "NextTurn": "Siguiente turno",
+      "NextRound": "Siguiente asalto",
+      "EndCombat": "Terminar combate",
+      "ActNow": "Actuar ahora (interrumpir)",
+      "ActAfter": "Actuar después del actual",
+      "Hold": "En espera",
+      "Target": "Marcar como objetivo",
+      "LostTurn": "Pierde el turno",
+      "Hidden": "Ocultar a los jugadores",
+      "Defeated": "Derrotado",
+      "Unfollow": "Dejar de seguir al líder",
+      "Remove": "Quitar del combate",
+      "Expand": "Ver efectos, estadísticas y poderes",
+      "DeleteEffect": "Quitar efecto",
+      "ViewCard": "Ver carta (clic derecho: robar de nuevo)",
+      "CombatMenu": "Opciones del encuentro (crear grupo, reiniciar iniciativa…)",
+      "RollRun": "Tirada de carrera"
+    },
+    "Notify": {
+      "NoTokens": "No hay fichas seleccionadas.",
+      "WrongSystem": "SWADE – Combat Tracker estilo FG solo funciona con el sistema SWADE."
+    },
+    "Keybinding": {
+      "Toggle": "Abrir/cerrar el tracker estilo FG"
+    },
+    "Settings": {
+      "AutoOpen": {
+        "Name": "Abrir al empezar el combate",
+        "Hint": "Abre la ventana automáticamente cuando empieza un combate en la escena que estás viendo."
+      },
+      "NpcDetail": {
+        "Name": "Información de PNJ visible para jugadores",
+        "Hint": "Qué ven los jugadores de los combatientes que no son suyos ni de otros jugadores.",
+        "All": "Todo (Heridas, Fatiga, Bennies y estados)",
+        "Status": "Solo estados activos",
+        "None": "Nada"
+      },
+      "StatusList": {
+        "Name": "Estados en cada fila",
+        "Hint": "Ids de estado del sistema SWADE separados por comas, en el orden en que se muestran."
+      },
+      "GMBennies": {
+        "Name": "Mostrar Bennies del DJ",
+        "Hint": "Muestra el contador de Bennies del DJ en la cabecera."
+      },
+      "Theme": {
+        "Name": "Tema de colores (mundo)",
+        "Hint": "Tema por defecto para todos los jugadores."
+      },
+      "ThemeClient": {
+        "Name": "Tema de colores (solo para ti)",
+        "Hint": "Sustituye el tema del mundo solo en este navegador."
+      },
+      "FavoritesMode": {
+        "Name": "Mostrar favoritos",
+        "Hint": "Cuándo aparecen en la fila los objetos marcados como favoritos en la hoja (solo para quien controla al personaje).",
+        "Always": "Siempre",
+        "Active": "Solo en su turno (o desplegado)",
+        "Expanded": "Solo al desplegar la fila",
+        "Never": "Nunca"
+      },
+      "FavoriteTypes": {
+        "Name": "Tipos de favoritos",
+        "Hint": "Tipos de objeto favoritos que se muestran, separados por comas y en orden (weapon, power, action, consumable, gear, shield, armor, skill, edge, hindrance, ability). «all» muestra todos los favoritos."
+      },
+      "NpcAttackTypes": {
+        "Name": "Ataques de PNJ sin estrella",
+        "Hint": "Tipos de objeto que se muestran siempre en la fila de los PNJ aunque no estén marcados como favoritos. Los poderes se ven al desplegar la fila. Déjalo vacío para mostrar solo favoritos."
+      },
+      "RollEngine": {
+        "Name": "Tiradas desde el tracker",
+        "Hint": "Qué módulo lanza las tiradas de los favoritos. Con Better Rolls 2 se sigue su ajuste de clic (tarjeta, diálogo o tirada directa); con SWADE Tools se abre su diálogo de ataque.",
+        "Auto": "Automático (Better Rolls 2 → SWADE Tools → sistema)",
+        "BR2": "Better Rolls 2",
+        "SwadeTools": "SWADE Tools",
+        "System": "Sistema SWADE"
+      },
+      "PanOnTurn": {
+        "Name": "Centrar la vista al cambiar de turno",
+        "Hint": "Mueve la cámara a la ficha del combatiente que tiene el turno.",
+        "None": "No",
+        "Mine": "Solo cuando yo cambio el turno",
+        "All": "Siempre que cambie el turno"
+      },
+      "PanSelect": {
+        "Name": "Seleccionar también la ficha",
+        "Hint": "Al centrar la vista, selecciona la ficha si es tuya (el DJ selecciona la de cualquier PNJ)."
+      },
+      "AutoExpand": {
+        "Name": "Desplegar al combatiente que actúa",
+        "Hint": "Al cambiar de turno, despliega la parte de efectos, estadísticas y poderes del combatiente que actúa y repliega la del anterior."
+      }
+    },
+    "GroupLeader": "Líder del grupo",
+    "Theme": {
+      "world": "Usar el del mundo",
+      "fg": "Fantasy Grounds (pergamino)",
+      "fantasy": "Fantasía",
+      "scifi": "Ciencia ficción",
+      "modern": "Moderno",
+      "horror": "Terror",
+      "pulp": "Pulp"
+    },
+    "Fav": {
+      "ShowCard": "Abrir la tirada (Better Rolls 2 / SWADE Tools / sistema)",
+      "Activate": "Activar"
+    },
+    "CardViewer": {
+      "Title": "Carta de acción",
+      "NoCard": "Todavía no tiene carta.",
+      "Missing": "El combatiente ya no está en el combate.",
+      "Leader": "Carta del líder",
+      "Redraw": "Robar de nuevo"
+    },
+    "Powers": "Poderes",
+    "PP": "Puntos de Poder",
+    "PPGeneral": "PP",
+    "Menu": {
+      "ShowInChat": "Mostrar en el chat",
+      "ToggleFavorite": "Marcar / quitar favorito"
+    }
+  }
+}
