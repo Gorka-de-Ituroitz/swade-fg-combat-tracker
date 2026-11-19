@@ -1,0 +1,45 @@
+# Al publicar una release en GitHub (etiqueta vX.Y.Z), este flujo:
+#  1. pone la versión de la etiqueta y las URLs correctas en module.json,
+#  2. crea module.zip con el módulo,
+#  3. adjunta module.json y module.zip a la release.
+name: Publicar release del módulo
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versión desde la etiqueta
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Actualizar module.json
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ github.event.release.tag_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          jq --arg v "$VERSION" \
+             --arg url "https://github.com/$REPO" \
+             --arg manifest "https://github.com/$REPO/releases/latest/download/module.json" \
+             --arg download "https://github.com/$REPO/releases/download/$TAG/module.zip" \
+             '.version=$v | .url=$url | .manifest=$manifest | .download=$download' \
+             module.json > module.tmp && mv module.tmp module.json
+
+      - name: Crear module.zip
+        run: zip -r module.zip module.json scripts styles templates lang README.md LICENSE
+
+      - name: Adjuntar a la release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.json
+            module.zip

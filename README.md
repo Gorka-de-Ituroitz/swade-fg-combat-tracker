@@ -23,9 +23,21 @@ Módulo para el sistema **SWADE**. Funciona en Foundry VTT v13 (SWADE 5.2.6, Bet
 
 No sustituye el combate del sistema ni el tracker de la barra lateral. Cada botón llama a la función correspondiente de SWADE (`rollInitiative`, `rerollInitiative`, `toggleHold`, `actNow`, `follow`, `toggleActiveEffect`, `spendBenny`, `itemChatCardHelper.handleAction`…), así que Better Rolls 2 y SWADE Tools reciben los mismos hooks que cuando se usa la hoja. Las tiradas de los favoritos se lanzan con las funciones públicas de Better Rolls 2 (`createItemCard`/`create_item_card`, `rollItem`/`roll_item`, `dialog.show_card`, según su versión) o con las clases de SWADE Tools (`ItemDialog`, `SystemRoll`).
 
+## Instalación
+
+En Foundry, **Add-on Modules → Install Module**, y en «Manifest URL» pega:
+
+```
+https://github.com/Gorka-de-Ituroitz/swade-fg-combat-tracker/releases/latest/download/module.json
+```
+
 ## Abrirlo
 
 - Botón **Tracker FG** en la pestaña de combate.
 - Atajo **Alt + C**.
 - Macro: `game.modules.get("swade-fg-combat-tracker").api.toggle()`
 - Se abre solo al empezar el combate (desactivable).
+
+## Licencia
+
+[MIT](LICENSE) © Gorka de Ituroitz
